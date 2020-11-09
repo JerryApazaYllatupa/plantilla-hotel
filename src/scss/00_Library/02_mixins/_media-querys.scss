@@ -1,0 +1,69 @@
+// validar si es que existe el item
+@function exists($key) {
+  @if (map-get($breakpoints, $key)) {
+    @return true;
+  }
+
+  @else {
+    @return false;
+  }
+}
+
+// obtener el valor del breackpoint en el item
+@function getbp($bp) {
+  @return map-get($breakpoints, $bp);
+}
+
+// Mixin para media querys desde (min-width)
+@mixin from($from: m) {
+  @if exists($from) {
+    @if $from==s {
+      @content;
+    }
+
+    @else {
+      @media screen and (min-width: getbp($from)) {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    @error "No existe la palabra clave, Utiliza estes parametros from(m || l || lg || xl)";
+  }
+}
+
+// Mixin para media querys hasta max-width
+
+@mixin to($to: m) {
+  @if exists($to) {
+    @if $to==s {
+      @content;
+    }
+
+    @else {
+      @media screen and(max-width:getbp($to)-1px) {
+        @content;
+      }
+    }
+  }
+
+  @else {
+    @error "No existe la palabra clave, Utiliza estes parametros from(m || l || lg || xl)";
+  }
+}
+
+//Mixin desde hasta media querys
+@mixin fromto($from: m, $to: lg) {
+  @if exists($from) and exists($to) {
+    @if getbp($from) < getbp($to) {
+      @media screen and (min-width: getbp($from)) and (max-width: getbp($to) - 1px) {
+        @content;
+      }
+    }
+
+    @else {
+      @error "El segundo argumento del mixin fromTo debe ser mayor que el primero";
+    }
+  }
+}

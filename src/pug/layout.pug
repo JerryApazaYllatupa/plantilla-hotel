@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="css/app.css")
+    
+  body
+    header
+        .header-principal.section-container
+          .header-box-1
+            a.icon-social(href="#")
+              span.fa.fa-facebook
+            a.icon-social(href="#")
+              span.fa.fa-instagram
+            a.icon-social(href="#")
+              span.fa.fa-whatsapp
+
+          .header-box-2
+            img(src="img/Logo-Rojas-Negro.png", alt="hotel rojas")
+          .header-box-3
+            a.link-phone(href="#") +51 985 550 568
+            a.link-phone(href="#") +51 944 060 967
+            span.header-text RESERVAS
+            .translate
+              span Español
+              span Ingles
+        
+        .icon-hamburger#icon-hamburger
+          span.fa.fa-bars
+
+        nav.menu.section-container#navmenu
+          ul.menu-ul
+            li.menu-item
+              a.menu-link(href="#")   Nosotros
+            li.menu-item
+              a.menu-link(href="#")   Habitaciones y precios
+            li.menu-item
+              a.menu-link(href="#")   Promociones
+            li.menu-item
+              a.menu-link(href="#")   Servicios
+            li.menu-item
+              a.menu-link(href="#")   Galeria
+            li.menu-item
+              a.menu-link(href="#")   Ubicación 
+            li.menu-item
+              a.menu-link(href="#")   Contacto
+
+    main.main
+      block content
+     
+    
+      footer.footer-principal.section-container
+        span.footer-line
+        .footer-content
+          .footer-section
+            a.icon-social(href="#")
+              span.fa.fa-facebook
+            a.icon-social(href="#")
+              span.fa.fa-instagram
+            a.icon-social(href="#")
+              span.fa.fa-whatsapp
+          .footer-section
+            a.link-phone(href="#") +51 985 550 568
+            a.link-phone(href="#") +51 944 060 967
+          .footer-section
+            p.text-p Calle Tigre 129, Cusco
+          .footer-section
+            p.text-p info@hotelrojascusco.com
+            p.text-p reserva@hotelrojascusco.com
+    script(src="js/app.js")

@@ -1,0 +1,59 @@
+extends pug/layout.pug
+append content
+  section.banner
+    img.banner-img(src="img/slider-1.jpg", alt="banner restaurante rojas")
+    .banner-capa
+    .title
+      h1.title1 Contáctanos
+      span.title-line
+  section.contactenos-form.section-container
+    .contactenos-box__1
+      .contactenos-row
+        span.fa.fa-home
+        p.text-p Calle Tigre 129, Cusco - Peru  	
+      .contactenos-row
+        span.fa.fa-envelope
+        .contactanos-description 
+          p.text-p reservas@ hotelrojascusco.com 
+          p.text-p info@hotelrojascusco.com 
+          p.text-p hotelrojas@hotmail.com 
+
+      .contactenos-row
+        span.fa.fa-phone
+        .contactanos-description 
+          p.text-p (+51 84) 228184
+          p.text-p (+51 84) 231357 
+          p.text-p Teléfono celular: 985550568 / 94848438 
+        
+    .contactenos-box__2
+      form.slider-form(action="#")
+        .form-content
+          label.form-label(for="#ingreso") Ingreso
+          input(type="date" id="ingreso")
+          label.form-label(for="#salida") Salida
+          input(type="date" id="salida")
+          label.form-label(for="#adultos") Adultos
+          input(type="number" id="adultos" value="1")
+          label.form-label(for="#ninos" ) Niños
+          input(type="number" id="ninos" value="0")
+          input(type="submit" value="BUSCAR")
+
+  section.contactanos-mapa
+    h2.title1 Tienes alguna duda. escribenos
+    .formulario-contactanos
+      form.formulario-form(action="")
+        label.form_label(for="#contact_name") Nombre
+        input(type="text" id="contact_name")
+        label.form_label(for="#contact_apellido") Apellidos
+        input(type="text" id="contact_apellido")
+        label.form_label(for="#contact_email") E-mail
+        input(type="email" id="contact_email")
+        label.form_label(for="#contact_message") Mensaje
+        textarea(name="", cols="30", rows="10" id="contact_message")
+        input(type="submit" value="ENVIAR")
+
+      iframe.contact-mapa(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d815.529666733637!2d-71.98079060510096!3d-13.515038082740537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd673cdcb8c29%3A0x88d9eff9362e5579!2sHotel%20Rojas%20Inn!5e0!3m2!1ses!2spe!4v1604780655354!5m2!1ses!2spe"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0")
+    
+    
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+  </head>
+  <body>
+    <header>
+      <div class="header-principal section-container">
+        <div class="header-box-1"><a class="icon-social" href="#"><span class="fa fa-facebook"></span></a><a class="icon-social" href="#"><span class="fa fa-instagram"></span></a><a class="icon-social" href="#"><span class="fa fa-whatsapp"></span></a></div>
+        <div class="header-box-2"><img src="img/Logo-Rojas-Negro.png" alt="hotel rojas"/></div>
+        <div class="header-box-3"><a class="link-phone" href="#">+51 985 550 568</a><a class="link-phone" href="#">+51 944 060 967</a><span class="header-text">RESERVAS</span>
+          <div class="translate"><span>Español</span><span>Ingles</span></div>
+        </div>
+      </div>
+      <div class="icon-hamburger" id="icon-hamburger"><span class="fa fa-bars"></span></div>
+      <nav class="menu section-container" id="navmenu">
+        <ul class="menu-ul">
+          <li class="menu-item"><a class="menu-link" href="#">  Nosotros</a></li>
+          <li class="menu-item"><a class="menu-link" href="#">  Habitaciones y precios</a></li>
+          <li class="menu-item"><a class="menu-link" href="#">  Promociones</a></li>
+          <li class="menu-item"><a class="menu-link" href="#">  Servicios</a></li>
+          <li class="menu-item"><a class="menu-link" href="#">  Galeria</a></li>
+          <li class="menu-item"><a class="menu-link" href="#">  Ubicación </a></li>
+          <li class="menu-item"><a class="menu-link" href="#">  Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="slider">
+        <div class="slider-content" id="sliderContent"><img class="slider-img active" src="img/slider-1.jpg" alt=""/><img class="slider-img" src="img/slider-2.jpg" alt=""/><img class="slider-img" src="img/slider-3.jpg" alt=""/><img class="slider-img" src="img/slider-4.jpg" alt=""/></div>
+        <div class="slider-buttoms"> <a class="slider-prev" id="sliderPrev">&#10094;</a><a class="slider-next" id="sliderNext">&#10095;</a></div>
+        <div class="slider-capa">
+          <form class="slider-form" action="#">
+            <div class="form-content">
+              <label class="form-label" for="#ingreso">Ingreso</label>
+              <input type="date" id="ingreso"/>
+              <label class="form-label" for="#salida">Salida</label>
+              <input type="date" id="salida"/>
+              <label class="form-label" for="#adultos">Adultos</label>
+              <input type="number" id="adultos" value="1"/>
+              <label class="form-label" for="#ninos">Niños</label>
+              <input type="number" id="ninos" value="0"/>
+              <input type="submit" value="BUSCAR"/>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="habitaciones section-container">
+        <h1 class="title1">Habitaciones</h1><span class="title-line"></span>
+        <div class="habitaciones-content">
+          <div class="habitaciones-box"><img class="habitaciones-img" src="img/suiteRojas1.jpg" alt=""/><span class="capa"></span>
+            <h3 class="habitaciones-text">Suite junior</h3>
+          </div>
+          <div class="habitaciones-box"><img class="habitaciones-img" src="img/suiteRojas1.jpg" alt=""/><span class="capa"></span>
+            <h3 class="habitaciones-text">Suite junior</h3>
+          </div>
+          <div class="habitaciones-box"><img class="habitaciones-img" src="img/suiteRojas1.jpg" alt=""/><span class="capa"></span>
+            <h3 class="habitaciones-text">Suite junior</h3>
+          </div>
+        </div>
+      </section>
+      <section class="restaurante section-container">
+        <div class="restaurante-content"><img class="restaurante-img" src="img/restaurante-buffet-hotel-cusco.jpg" alt="Restaurante hotel rojas"/>
+          <div class="restaurante-box">
+            <h1 class="title1">Restaurante</h1><span class="title-line"></span>
+            <p class="text-p">Hotel Rojas Inn le ofrece un exquisito y variado desayuno buffer gratis con su reserva de frutas variadas de acuerdo a la estación diferentes tipos de pan, selectos jamones, cereales, mermeladas, jugos y otros productos tipicos de nuestra region</p>
+          </div>
+        </div>
+      </section>
+      <footer class="footer-principal section-container"><span class="footer-line"></span>
+        <div class="footer-content">
+          <div class="footer-section"><a class="icon-social" href="#"><span class="fa fa-facebook"></span></a><a class="icon-social" href="#"><span class="fa fa-instagram"></span></a><a class="icon-social" href="#"><span class="fa fa-whatsapp"></span></a></div>
+          <div class="footer-section"><a class="link-phone" href="#">+51 985 550 568</a><a class="link-phone" href="#">+51 944 060 967</a></div>
+          <div class="footer-section">
+            <p class="text-p">Calle Tigre 129, Cusco</p>
+          </div>
+          <div class="footer-section">
+            <p class="text-p">info@hotelrojascusco.com</p>
+            <p class="text-p">reserva@hotelrojascusco.com</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+extends pug/layout.pug
+append content
+  section.slider
+    .slider-content#sliderContent
+      img.slider-img.active(src="img/slider-1.jpg", alt="")
+      img.slider-img(src="img/slider-2.jpg", alt="")
+      img.slider-img(src="img/slider-3.jpg", alt="")
+      img.slider-img(src="img/slider-4.jpg", alt="")
+    .slider-buttoms 
+      a.slider-prev#sliderPrev &#10094;
+      a.slider-next#sliderNext &#10095;
+    .slider-capa
+      form.slider-form(action="#")
+        .form-content
+          label.form-label(for="#ingreso") Ingreso
+          input(type="date" id="ingreso")
+          label.form-label(for="#salida") Salida
+          input(type="date" id="salida")
+          label.form-label(for="#adultos") Adultos
+          input(type="number" id="adultos" value="1")
+          label.form-label(for="#ninos" ) Niños
+          input(type="number" id="ninos" value="0")
+          input(type="submit" value="BUSCAR")
+
+
+
+  section.habitaciones.section-container
+    h1.title1 Habitaciones
+    span.title-line
+    .habitaciones-content
+      .habitaciones-box
+        img.habitaciones-img(src="img/suiteRojas1.jpg", alt="")
+        span.capa
+        h3.habitaciones-text Suite junior
+      .habitaciones-box
+        img.habitaciones-img(src="img/suiteRojas1.jpg", alt="")
+        span.capa
+        h3.habitaciones-text Suite junior
+      .habitaciones-box
+        img.habitaciones-img(src="img/suiteRojas1.jpg", alt="")
+        span.capa
+        h3.habitaciones-text Suite junior
+  section.restaurante.section-container
+    .restaurante-content
+      img.restaurante-img(src="img/restaurante-buffet-hotel-cusco.jpg", alt="Restaurante hotel rojas")
+      .restaurante-box
+        h1.title1 Restaurante
+        span.title-line
+        p.text-p Hotel Rojas Inn le ofrece un exquisito y variado desayuno buffer gratis con su reserva de frutas variadas de acuerdo a la estación diferentes tipos de pan, selectos jamones, cereales, mermeladas, jugos y otros productos tipicos de nuestra region

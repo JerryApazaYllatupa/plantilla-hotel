@@ -1,0 +1,541 @@
+@import './00_Library/includes';
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+
+/* 
+ In this part I declare the global variables
+*/
+
+:root {
+	// primary variables
+	--colorPrimary: #A07426;
+	--colorPrimaryLigth: #097e86;
+	--colorSecondary: #1b1b1b;
+
+	--colorText: #585353;
+	--colorTextWhite: #fff;
+
+
+
+	//secondary variables
+	--maxWith: 1300px;
+
+	--widthcontent: calc(100% - var(--widthasideright));
+	--fontFamily: 'Allura', cursive;
+	--fontText: 'Monospase';
+}
+
+// scss variables
+$font: var(--fontFamily);
+$cPrimary: var(--colorPrimary);
+$cPrimaryLight: var(--colorPrimaryLigth);
+$cSecondary: var(--colorSecondary);
+$cBg: var(--colorBg);
+$cText: var(--colorText);
+$cHover: var(--colorHover);
+$cTextWhite: var(--colorTextWhite);
+$whitAside: var(--widthaside);
+$fontText: var(--fontText);
+$maxWith: var(--maxWith);
+
+
+// class global
+.section-container {
+	padding: 1em;
+	margin: auto;
+
+	@include from {
+		max-width: $maxWith;
+	}
+}
+
+.title1 {
+	text-align: center;
+	font-family: $font;
+	font-size: 3em;
+	margin-bottom: 0;
+	color: $cSecondary;
+	font-weight: lighter;
+
+}
+
+.text-p {
+	color: $cText;
+}
+
+.title-line {
+	text-align: center;
+	display: block;
+	width: 20%;
+	border-bottom: 2px solid $cPrimary;
+	margin: auto;
+}
+
+.link-phone {
+
+	color: $cPrimary;
+	padding: .2em;
+	text-decoration: none;
+}
+
+.icon-social {
+	font-size: 2.5em;
+	color: $cPrimary;
+}
+
+.capa {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+
+/* ------------------Header---------------- */
+.header-principal {
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+
+	.header-box-3 {
+		display: flex;
+		flex-direction: column;
+
+
+		.header-phone,
+		.header-text {
+			color: $cPrimary;
+			padding: .2em;
+			text-decoration: none;
+		}
+	}
+
+	@include from(l) {
+		display: flex;
+	}
+
+}
+
+.icon-hamburger {
+	display: flex;
+	font-size: 2em;
+	cursor: pointer;
+	padding: 0.2em;
+	height: 44px;
+	background-color: $cSecondary;
+	width: 100%;
+
+	&:hover .fa {
+		color: $cPrimary;
+	}
+
+	& .fa {
+		color: white;
+	}
+
+	@include from(l) {
+		display: none;
+	}
+}
+
+.menu {
+	padding: 0;
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+.menu-ul {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+	padding: 1.5em;
+
+	@include to(l) {
+		margin: 0;
+		flex-direction: column;
+		background-color: var(--colorPrimary);
+		z-index: 1;
+		width: 100%;
+	}
+
+
+	.menu-link {
+		color: white;
+		text-decoration: none;
+		width: 100%;
+		display: block;
+		padding: .3em;
+
+		&:hover {
+			color: $cSecondary;
+		}
+
+		@include from(l) {
+			color: $cText;
+
+			&:hover {
+				color: $cPrimary;
+			}
+
+		}
+	}
+
+}
+
+
+/* ------------------ slider ----------------- */
+.slider {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.slider-content {
+	height: 300px;
+	position: relative;
+
+	.slider-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		display: none;
+	}
+
+	.slider-img.active {
+
+		display: block;
+	}
+
+	@include from {
+		height: 600px;
+
+	}
+}
+
+.slider-buttoms {
+	position: absolute;
+	color: white;
+	font-size: 3em;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	align-content: center;
+	padding: 1em;
+
+	height: 300px;
+
+	@include from {
+		height: 600px;
+
+	}
+}
+
+.slider-prev,
+.slider-next {
+	cursor: pointer;
+	// background-color: rgba(160, 116, 38, 0.8);
+	padding: .1em;
+	border-radius: 5px;
+
+	&:hover {
+		// filter: brightness(130%);
+		color: $cPrimary;
+	}
+}
+
+.slider-capa {
+
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 1em;
+
+	@include to(l) {
+		width: 90%;
+		margin: 10px auto;
+	}
+
+	@include from() {
+		top: 100px;
+		left: 20%;
+
+		position: absolute;
+	}
+}
+
+.slider-form {
+	border: 1px white solid;
+	padding: .8em;
+
+	.form-content {
+		display: flex;
+		flex-direction: column;
+
+		.form-label {
+			color: $cTextWhite;
+			margin: .5em 0;
+		}
+
+		input[type="number"] {
+			margin: .3em 0;
+
+		}
+
+		input[type="date"],
+		input[type="number"] {
+			padding: .3em;
+
+		}
+	}
+}
+
+
+
+/* ------------------ Habitaciones ----------------- */
+
+.habitaciones-content {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	.habitaciones-box {
+		position: relative;
+		width: 250px;
+		height: 250px;
+		background-color: red;
+		margin: 2em;
+		border-radius: 50%;
+		overflow: hidden;
+	}
+
+	.habitaciones-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.habitaciones-text {
+		position: absolute;
+		visibility: hidden;
+	}
+}
+
+/* ------------------ Restaurante ----------------- */
+.restaurante {
+	width: 80%;
+
+	&-content {
+		display: flex;
+
+		justify-content: space-around;
+
+		@include to(l) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&-img {
+		min-width: 45%;
+	}
+
+	&-box {
+		min-width: 45%;
+		text-align: center;
+		color: $cText;
+		font-size: 1.2em;
+	}
+
+}
+
+/* ------------------ SECTION BANNER ----------------- */
+.banner {
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+
+	.banner-capa {
+		background-color: rgba(255, 255, 255, 0.5);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	&-img {
+		width: 100%;
+	}
+
+	.title {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100px;
+		bottom: 0;
+		margin: auto;
+
+
+	}
+}
+
+/* ------------------ SECTION PAQUETES----------------- */
+.package-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+}
+
+.packages-box {
+	padding: .3em;
+	border: 1px solid $cPrimary;
+	max-width: 300px;
+	height: 400px;
+	margin: .5em;
+	position: relative;
+}
+
+.package-bnt {
+	text-decoration: none;
+	color: $cPrimary;
+	position: absolute;
+	bottom: .2em;
+	text-align: center;
+	width: 100%;
+	font-size: 1.2em;
+}
+
+.package-box__img {
+	width: 100%;
+	height: 200px;
+	position: relative;
+
+	.package-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.package-box-capa {
+		visibility: hidden;
+	}
+
+	.package-title {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 1;
+		color: $cTextWhite;
+		visibility: hidden;
+	}
+
+	&:hover {
+
+		.package-title,
+		.package-box-capa {
+			visibility: visible;
+		}
+	}
+
+}
+
+/* ------------------ SECTION CONTACTANOS----------------- */
+.contactenos-form {
+	width: 80%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.contactenos-row {
+	display: flex;
+	align-items: center;
+
+	span {
+		font-size: 2em;
+		margin-right: .2em;
+	}
+}
+
+.contactenos-box__2 {
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 1em;
+}
+
+.contactanos-mapa {
+	text-align: center;
+}
+
+.formulario-contactanos {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.contact-mapa {
+	min-width: 45%;
+	height: 450px;
+}
+
+.formulario-form {
+	padding: 1em;
+	background-color: $cPrimary;
+	min-width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+	.form_label {
+		text-align: start;
+		color: white;
+	}
+
+	input[type="submit"] {
+
+		background-color: $cPrimary;
+		color: $cTextWhite;
+		margin: .5em 0;
+		padding: 1em;
+		border: 1px solid white;
+		border-radius: 5px;
+
+		&:hover {
+			filter: brightness(130%);
+		}
+	}
+
+}
+
+/* ------------------ FOOTER ----------------- */
+.footer-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	@include from(l) {
+		justify-content: space-around;
+	}
+
+}
+
+.footer-line {
+	border-bottom: 2px solid $cPrimary;
+	display: block;
+	margin: auto;
+}
+
+.footer-section:nth-child(2) {
+	display: flex;
+	flex-direction: column;
+}

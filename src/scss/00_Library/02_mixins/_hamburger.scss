@@ -1,0 +1,48 @@
+@mixin hamburger($color: white, $color-hover: $lightwhite, $width: 20px, $height: 16px, $weight: 2px, $bars: 3) {
+  // box-shadow CSS output
+  $shadow: ();
+  $hover-shadow: ();
+
+  // Spacing between bars is calculated based on the total height of the icon and the weight of each bar
+  $spacing: ($height - ($weight * $bars)) / ($bars - 1);
+
+  @if unit($spacing) == "px" {
+    $spacing: floor($spacing);
+  }
+  @for $i from 2 through $bars {
+    $offset: ($weight + $spacing) * ($i - 1);
+    $shadow: append($shadow, 0 $offset 0 $color, comma);
+  }
+  // Icon container
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: $width;
+  height: $height;
+  cursor: pointer;
+  // Icon bars
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: $weight;
+    background: $color;
+    box-shadow: $shadow;
+    content: "";
+  }
+
+  // Hover state
+  @if $color-hover {
+    // Generate CSS
+    @for $i from 2 through $bars {
+      $offset: ($weight + $spacing) * ($i - 1);
+      $hover-shadow: append($hover-shadow, 0 $offset 0 $color-hover, comma);
+    }
+    &:hover::after {
+      background: $color-hover;
+      box-shadow: $hover-shadow;
+    }
+  }
+}
