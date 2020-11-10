@@ -28,43 +28,45 @@ let btnNext = getId("sliderNext"),
   btnPrev = getId("sliderPrev")
 
 let sliderContent = getId("sliderContent"),
-  sliderImages = sliderContent.getElementsByClassName('slider-img')
+  sliderImages = sliderContent.getElementsByClassName('slider-img');
 
+let numberClick = 0
 
+let closeImages = (number = 0) => {
 
-let sliderPosition = 0
-
-let closeImages = (number = sliderPosition) => {
-
-  let sliderLength = sliderImages.length - 1
-
-  if (sliderPosition >= sliderLength) {
-    sliderPosition = 0
+  if (number > sliderImages.length - 2) {
+    numberClick = 0
   }
 
-
-
-  for (let i = 0; i <= sliderLength; i++) {
+  for (let i = 0; i < sliderImages.length; i++) {
 
     if (i == number) {
       sliderImages[i].classList.add("active")
+
     } else {
+
       sliderImages[i].classList.remove("active")
     }
+
   }
 
 }
 
 closeImages()
 
+
+
 listener(btnNext, 'click', () => {
-  sliderPosition++
-  closeImages()
+  numberClick++
+  closeImages(numberClick)
+
 })
 
 listener(btnPrev, 'click', () => {
-  sliderPosition--
-  sliderPosition = Math.abs(sliderPosition)
-  closeImages()
+
+  numberClick--
+  let newPosition = Math.abs(numberClick)
+  closeImages(newPosition)
+
 })
 

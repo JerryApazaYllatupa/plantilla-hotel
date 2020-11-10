@@ -881,17 +881,16 @@ var btnNext = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sl
     btnPrev = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sliderPrev");
 var sliderContent = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sliderContent"),
     sliderImages = sliderContent.getElementsByClassName('slider-img');
-var sliderPosition = 0;
+var numberClick = 0;
 
 var closeImages = function closeImages() {
-  var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : sliderPosition;
-  var sliderLength = sliderImages.length - 1;
+  var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
-  if (sliderPosition >= sliderLength) {
-    sliderPosition = 0;
+  if (number > sliderImages.length - 2) {
+    numberClick = 0;
   }
 
-  for (var i = 0; i <= sliderLength; i++) {
+  for (var i = 0; i < sliderImages.length; i++) {
     if (i == number) {
       sliderImages[i].classList.add("active");
     } else {
@@ -902,13 +901,13 @@ var closeImages = function closeImages() {
 
 closeImages();
 Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnNext, 'click', function () {
-  sliderPosition++;
-  closeImages();
+  numberClick++;
+  closeImages(numberClick);
 });
 Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnPrev, 'click', function () {
-  sliderPosition--;
-  sliderPosition = Math.abs(sliderPosition);
-  closeImages();
+  numberClick--;
+  var newPosition = Math.abs(numberClick);
+  closeImages(newPosition);
 });
 
 /***/ }),

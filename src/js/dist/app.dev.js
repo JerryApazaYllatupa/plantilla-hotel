@@ -15,17 +15,16 @@ var btnNext = (0, _library.getId)("sliderNext"),
     btnPrev = (0, _library.getId)("sliderPrev");
 var sliderContent = (0, _library.getId)("sliderContent"),
     sliderImages = sliderContent.getElementsByClassName('slider-img');
-var sliderPosition = 0;
+var numberClick = 0;
 
 var closeImages = function closeImages() {
-  var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : sliderPosition;
-  var sliderLength = sliderImages.length - 1;
+  var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
-  if (sliderPosition >= sliderLength) {
-    sliderPosition = 0;
+  if (number > sliderImages.length - 2) {
+    numberClick = 0;
   }
 
-  for (var i = 0; i <= sliderLength; i++) {
+  for (var i = 0; i < sliderImages.length; i++) {
     if (i == number) {
       sliderImages[i].classList.add("active");
     } else {
@@ -36,11 +35,11 @@ var closeImages = function closeImages() {
 
 closeImages();
 (0, _library.listener)(btnNext, 'click', function () {
-  sliderPosition++;
-  closeImages();
+  numberClick++;
+  closeImages(numberClick);
 });
 (0, _library.listener)(btnPrev, 'click', function () {
-  sliderPosition--;
-  sliderPosition = Math.abs(sliderPosition);
-  closeImages();
+  numberClick--;
+  var newPosition = Math.abs(numberClick);
+  closeImages(newPosition);
 });
