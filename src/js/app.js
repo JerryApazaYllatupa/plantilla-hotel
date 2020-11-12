@@ -54,7 +54,11 @@ let closeImages = (number = 0) => {
 
 closeImages()
 
-
+// Fuction to run 
+setInterval(() => {
+  numberClick = numberClick + 1
+  closeImages(numberClick)
+}, 3000);
 
 listener(btnNext, 'click', () => {
   numberClick++

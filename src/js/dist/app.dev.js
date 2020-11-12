@@ -33,7 +33,13 @@ var closeImages = function closeImages() {
   }
 };
 
-closeImages();
+closeImages(); // setTimeout(() => {
+// }, );
+
+setInterval(function () {
+  numberClick = numberClick + 1;
+  closeImages(numberClick);
+}, 3000);
 (0, _library.listener)(btnNext, 'click', function () {
   numberClick++;
   closeImages(numberClick);

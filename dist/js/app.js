@@ -899,7 +899,12 @@ var closeImages = function closeImages() {
   }
 };
 
-closeImages();
+closeImages(); // Fuction to run 
+
+setInterval(function () {
+  numberClick = numberClick + 1;
+  closeImages(numberClick);
+}, 3000);
 Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnNext, 'click', function () {
   numberClick++;
   closeImages(numberClick);

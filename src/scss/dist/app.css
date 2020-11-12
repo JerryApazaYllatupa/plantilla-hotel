@@ -376,6 +376,7 @@ template {
   margin-bottom: 0;
   color: var(--colorSecondary);
   font-weight: lighter;
+  margin-bottom: 0.5em;
 }
 
 .text-p {
@@ -397,8 +398,9 @@ template {
 }
 
 .icon-social {
-  font-size: 2.5em;
+  font-size: 2em;
   color: var(--colorPrimary);
+  margin: 0.1em;
 }
 
 .capa {
@@ -415,10 +417,19 @@ template {
   display: none;
   justify-content: space-between;
   align-items: center;
+  height: 100px;
+}
+.header-principal .header-box-2 {
+  height: 100%;
+}
+.header-principal .header-box-2 img {
+  object-fit: contain;
+  height: 100%;
 }
 .header-principal .header-box-3 {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .header-principal .header-box-3 .header-phone,
 .header-principal .header-box-3 .header-text {
@@ -432,20 +443,52 @@ template {
   }
 }
 
+.header-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media screen and (min-width: 1024px) {
+  .header-logo {
+    display: none;
+  }
+}
+
+.header-language {
+  display: flex;
+}
+.header-language .header-lang-link {
+  padding: 0.05em 0.2em;
+  margin: auto 0.1em;
+  display: flex;
+}
+.header-language .header-lang-img {
+  object-fit: contain;
+}
+@media screen and (min-width: 1024px) {
+  .header-language {
+    display: none;
+  }
+}
+
 .icon-hamburger {
   display: flex;
   font-size: 2em;
-  cursor: pointer;
   padding: 0.2em;
-  height: 44px;
-  background-color: var(--colorSecondary);
+  height: 50px;
+  align-items: center;
+  background-color: white;
   width: 100%;
-}
-.icon-hamburger:hover .fa {
-  color: var(--colorPrimary);
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
 .icon-hamburger .fa {
-  color: white;
+  color: var(--colorSecondary);
+  cursor: pointer;
+}
+.icon-hamburger .fa:hover {
+  color: var(--colorPrimary);
 }
 @media screen and (min-width: 1024px) {
   .icon-hamburger {
@@ -460,12 +503,22 @@ template {
 .menu.active {
   display: block;
 }
+@media screen and (min-width: 1024px) {
+  .menu {
+    display: block;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 2;
+  }
+}
 
 .menu-ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
-  padding: 1.5em;
+  padding: 0.5em 1.5em;
+  text-align: center;
 }
 @media screen and (max-width: 1023px) {
   .menu-ul {
@@ -474,6 +527,12 @@ template {
     background-color: var(--colorPrimary);
     z-index: 1;
     width: 100%;
+    position: fixed;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .menu-ul {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
   }
 }
 .menu-ul .menu-link {
@@ -500,11 +559,13 @@ template {
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
 .slider-content {
   height: 300px;
   position: relative;
+  overflow: hidden;
 }
 .slider-content .slider-img {
   width: 100%;
@@ -512,6 +573,7 @@ template {
   object-fit: cover;
   position: absolute;
   display: none;
+  animation: scale 8s infinite linear alternate;
 }
 .slider-content .slider-img.active {
   display: block;
@@ -522,6 +584,14 @@ template {
   }
 }
 
+@keyframes scale {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1.4);
+  }
+}
 .slider-buttoms {
   position: absolute;
   color: white;
@@ -561,7 +631,7 @@ template {
     margin: 10px auto;
   }
 }
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1024px) {
   .slider-capa {
     top: 100px;
     left: 20%;
@@ -589,11 +659,18 @@ template {
   padding: 0.3em;
 }
 
+@media screen and (max-width: 1023px) {
+  .main {
+    margin-top: 50px;
+  }
+}
+
 /* ------------------ Habitaciones ----------------- */
 .habitaciones-content {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .habitaciones-content .habitaciones-box {
   position: relative;
@@ -604,6 +681,13 @@ template {
   border-radius: 50%;
   overflow: hidden;
 }
+.habitaciones-content .habitaciones-box .capa {
+  visibility: hidden;
+}
+.habitaciones-content .habitaciones-box:hover .habitaciones-text,
+.habitaciones-content .habitaciones-box:hover .capa {
+  visibility: visible;
+}
 .habitaciones-content .habitaciones-img {
   width: 100%;
   height: 100%;
@@ -611,6 +695,14 @@ template {
 }
 .habitaciones-content .habitaciones-text {
   position: absolute;
+  top: 0;
+  color: white;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
   visibility: hidden;
 }
 
@@ -629,6 +721,7 @@ template {
 }
 .restaurante-img {
   min-width: 45%;
+  object-fit: cover;
 }
 .restaurante-box {
   min-width: 45%;
@@ -751,6 +844,8 @@ template {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  max-width: 80%;
+  margin: auto;
 }
 
 .contact-mapa {
@@ -783,10 +878,15 @@ template {
 }
 
 /* ------------------ FOOTER ----------------- */
+.footer-principal {
+  background-color: var(--colorSecondary);
+}
+
 .footer-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 @media screen and (min-width: 1024px) {
   .footer-content {
@@ -797,7 +897,11 @@ template {
 .footer-line {
   border-bottom: 2px solid var(--colorPrimary);
   display: block;
-  margin: auto;
+  margin: 0 auto 2em;
+}
+
+.footer-section .text-p {
+  color: var(--colorPrimary);
 }
 
 .footer-section:nth-child(2) {

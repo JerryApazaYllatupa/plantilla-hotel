@@ -9,50 +9,60 @@ html(lang="en")
     
   body
     header
-        .header-principal.section-container
-          .header-box-1
-            a.icon-social(href="#")
-              span.fa.fa-facebook
-            a.icon-social(href="#")
-              span.fa.fa-instagram
-            a.icon-social(href="#")
-              span.fa.fa-whatsapp
+      .header-principal.section-container
+        .header-box-1
+          a.icon-social(href="#")
+            span.fa.fa-facebook
+          a.icon-social(href="#")
+            span.fa.fa-instagram
+          a.icon-social(href="#")
+            span.fa.fa-whatsapp
 
-          .header-box-2
-            img(src="img/Logo-Rojas-Negro.png", alt="hotel rojas")
-          .header-box-3
-            a.link-phone(href="#") +51 985 550 568
-            a.link-phone(href="#") +51 944 060 967
-            span.header-text RESERVAS
-            .translate
-              span Español
-              span Ingles
-        
-        .icon-hamburger#icon-hamburger
-          span.fa.fa-bars
+        .header-box-2
+          img(src="img/Logo-Rojas-Negro.png", alt="hotel rojas")
+        .header-box-3
+          a.link-phone(href="#") 
+            span.fa.fa-phone 
+            span +51 985550568
+          a.link-phone(href="#")
+            span.fa.fa-phone
+            span +51944060967
+          
+          .translate
+            //- span Español
+            //- span Ingles
+      
+      .icon-hamburger
+        span.fa.fa-bars#icon-hamburger
+        img.header-logo(src="img/Logo-Rojas-Negro.png", alt="logo Hotel Rojas")
+        .header-language
+          a.header-lang-link(href="#")
+            img.header-lang-img(src="img/lang-esopain.png", alt="español hotel rojas")
+          a.header-lang-link(href="#")
+            img.header-lang-img(src="img/lang-english.png", alt="ingles hotel rojas")
 
-        nav.menu.section-container#navmenu
-          ul.menu-ul
-            li.menu-item
-              a.menu-link(href="#")   Nosotros
-            li.menu-item
-              a.menu-link(href="#")   Habitaciones y precios
-            li.menu-item
-              a.menu-link(href="#")   Promociones
-            li.menu-item
-              a.menu-link(href="#")   Servicios
-            li.menu-item
-              a.menu-link(href="#")   Galeria
-            li.menu-item
-              a.menu-link(href="#")   Ubicación 
-            li.menu-item
-              a.menu-link(href="#")   Contacto
+    nav.menu#navmenu
+        ul.menu-ul
+          li.menu-item
+            a.menu-link(href="#")   Nosotros
+          li.menu-item
+            a.menu-link(href="#")   Habitaciones y precios
+          li.menu-item
+            a.menu-link(href="#")   Promociones
+          li.menu-item
+            a.menu-link(href="#")   Servicios
+          li.menu-item
+            a.menu-link(href="#")   Galeria
+          li.menu-item
+            a.menu-link(href="#")   Ubicación 
+          li.menu-item
+            a.menu-link(href="#")   Contacto
 
     main.main
       block content
      
     
-      footer.footer-principal.section-container
+      footer.footer-principal
         span.footer-line
         .footer-content
           .footer-section

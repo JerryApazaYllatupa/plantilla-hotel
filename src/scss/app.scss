@@ -56,7 +56,7 @@ $maxWith: var(--maxWith);
 	margin-bottom: 0;
 	color: $cSecondary;
 	font-weight: lighter;
-
+	margin-bottom: .5em;
 }
 
 .text-p {
@@ -79,8 +79,9 @@ $maxWith: var(--maxWith);
 }
 
 .icon-social {
-	font-size: 2.5em;
+	font-size: 2em;
 	color: $cPrimary;
+	margin: .1em;
 }
 
 .capa {
@@ -98,11 +99,21 @@ $maxWith: var(--maxWith);
 	display: none;
 	justify-content: space-between;
 	align-items: center;
+	height: 100px;
+
+	.header-box-2 {
+		height: 100%;
+
+		img {
+			object-fit: contain;
+			height: 100%;
+		}
+	}
 
 	.header-box-3 {
 		display: flex;
 		flex-direction: column;
-
+		text-align: center;
 
 		.header-phone,
 		.header-text {
@@ -118,26 +129,64 @@ $maxWith: var(--maxWith);
 
 }
 
-.icon-hamburger {
-	display: flex;
-	font-size: 2em;
-	cursor: pointer;
-	padding: 0.2em;
-	height: 44px;
-	background-color: $cSecondary;
-	width: 100%;
+.header-logo {
 
-	&:hover .fa {
-		color: $cPrimary;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+
+	@include from(l) {
+		display: none;
+	}
+}
+
+.header-language {
+	display: flex;
+
+	.header-lang-link {
+		padding: .05em .2em;
+		margin: auto .1em;
+		display: flex;
+
 	}
 
+	.header-lang-img {
+		object-fit: contain;
+
+	}
+
+	@include from(l) {
+		display: none;
+		;
+	}
+}
+
+.icon-hamburger {
+
+	display: flex;
+	font-size: 2em;
+	padding: 0.2em;
+	height: 50px;
+	align-items: center;
+	background-color: white;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 2;
+
 	& .fa {
-		color: white;
+		&:hover {
+			color: $cPrimary;
+		}
+
+		color: $cSecondary;
+		cursor: pointer;
 	}
 
 	@include from(l) {
 		display: none;
 	}
+
 }
 
 .menu {
@@ -147,13 +196,23 @@ $maxWith: var(--maxWith);
 	&.active {
 		display: block;
 	}
+
+	@include from(l) {
+		display: block;
+		position: sticky;
+		top: 0;
+		background-color: white;
+		z-index: 2;
+	}
+
 }
 
 .menu-ul {
 	display: flex;
 	justify-content: space-around;
 	list-style: none;
-	padding: 1.5em;
+	padding: .5em 1.5em;
+	text-align: center;
 
 	@include to(l) {
 		margin: 0;
@@ -161,8 +220,13 @@ $maxWith: var(--maxWith);
 		background-color: var(--colorPrimary);
 		z-index: 1;
 		width: 100%;
+		position: fixed;
+
 	}
 
+	@include from(l) {
+		box-shadow: 0px 3px 8px rgba(0, 0, 0, .5);
+	}
 
 	.menu-link {
 		color: white;
@@ -193,11 +257,13 @@ $maxWith: var(--maxWith);
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	overflow: hidden;
 }
 
 .slider-content {
 	height: 300px;
 	position: relative;
+	overflow: hidden;
 
 	.slider-img {
 		width: 100%;
@@ -205,6 +271,8 @@ $maxWith: var(--maxWith);
 		object-fit: cover;
 		position: absolute;
 		display: none;
+		animation: scale 8s infinite linear alternate;
+
 	}
 
 	.slider-img.active {
@@ -215,6 +283,16 @@ $maxWith: var(--maxWith);
 	@include from {
 		height: 600px;
 
+	}
+}
+
+@keyframes scale {
+	from {
+		transform: scale(1.1);
+	}
+
+	to {
+		transform: scale(1.4);
 	}
 }
 
@@ -260,7 +338,7 @@ $maxWith: var(--maxWith);
 		margin: 10px auto;
 	}
 
-	@include from() {
+	@include from(l) {
 		top: 100px;
 		left: 20%;
 
@@ -269,8 +347,11 @@ $maxWith: var(--maxWith);
 }
 
 .slider-form {
+
+
 	border: 1px white solid;
 	padding: .8em;
+
 
 	.form-content {
 		display: flex;
@@ -292,9 +373,15 @@ $maxWith: var(--maxWith);
 
 		}
 	}
+
+
 }
 
-
+.main {
+	@include to(l) {
+		margin-top: 50px;
+	}
+}
 
 /* ------------------ Habitaciones ----------------- */
 
@@ -302,8 +389,10 @@ $maxWith: var(--maxWith);
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	cursor: pointer;
 
 	.habitaciones-box {
+
 		position: relative;
 		width: 250px;
 		height: 250px;
@@ -311,6 +400,20 @@ $maxWith: var(--maxWith);
 		margin: 2em;
 		border-radius: 50%;
 		overflow: hidden;
+
+
+		.capa {
+			visibility: hidden;
+		}
+
+		&:hover {
+
+			.habitaciones-text,
+			.capa {
+				visibility: visible;
+			}
+
+		}
 	}
 
 	.habitaciones-img {
@@ -321,8 +424,18 @@ $maxWith: var(--maxWith);
 
 	.habitaciones-text {
 		position: absolute;
+		top: 0;
+		color: white;
+		display: flex;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		justify-content: center;
+		align-items: center;
 		visibility: hidden;
 	}
+
+
 }
 
 /* ------------------ Restaurante ----------------- */
@@ -337,10 +450,12 @@ $maxWith: var(--maxWith);
 		@include to(l) {
 			flex-wrap: wrap;
 		}
+
 	}
 
 	&-img {
 		min-width: 45%;
+		object-fit: cover;
 	}
 
 	&-box {
@@ -456,6 +571,7 @@ $maxWith: var(--maxWith);
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
+
 }
 
 .contactenos-row {
@@ -481,6 +597,8 @@ $maxWith: var(--maxWith);
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	max-width: 80%;
+	margin: auto;
 }
 
 .contact-mapa {
@@ -518,10 +636,15 @@ $maxWith: var(--maxWith);
 }
 
 /* ------------------ FOOTER ----------------- */
+.footer-principal {
+	background-color: $cSecondary;
+}
+
 .footer-content {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 
 	@include from(l) {
 		justify-content: space-around;
@@ -532,10 +655,17 @@ $maxWith: var(--maxWith);
 .footer-line {
 	border-bottom: 2px solid $cPrimary;
 	display: block;
-	margin: auto;
+	margin: 0 auto 2em;
+}
+
+.footer-section {
+	.text-p {
+		color: $cPrimary;
+	}
 }
 
 .footer-section:nth-child(2) {
 	display: flex;
 	flex-direction: column;
+
 }
