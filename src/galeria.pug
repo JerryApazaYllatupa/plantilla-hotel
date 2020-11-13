@@ -1,0 +1,42 @@
+extends pug/layout.pug
+append content
+  section.banner
+    img.banner-img(src="img/slider-1.jpg", alt="banner restaurante rojas")
+    .banner-capa
+    .title
+      h1.title1 Galeria
+      span.title-line
+  section.galeria.section-container#galeriaPrincipal
+    .galeria-box 
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/slider-1.jpg", alt="galeria de hotel rojas")
+    .galeria-box 
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/slider-2.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/slider-1.jpg", alt="galeria de hotel rojas")
+    .galeria-box 
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box 
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+    .galeria-box
+      img.galeria-img(src="img/galeria-hotel-rojas.jpg", alt="galeria de hotel rojas")
+  section.modal-galeria#modalGaleria
+    
+    img.modal-galeria__img(src="img/slider-1.jpg", alt="hola")
+    .modal-galeria__buttoms
+      a.slider-prev#sliderPrevGallery &#10094;
+      a.slider-next#sliderNextGallery &#10095;
+    .modal-closed
+      span.fa.fa-close
+

@@ -431,6 +431,19 @@ template {
   flex-direction: column;
   text-align: center;
 }
+.header-principal .header-box-3 .header-translate {
+  justify-content: center;
+  display: none;
+}
+.header-principal .header-box-3 .header-translate .header-lang-img {
+  width: 1.5em;
+  margin: 0 0.5em;
+}
+@media screen and (min-width: 1024px) {
+  .header-principal .header-box-3 .header-translate {
+    display: flex;
+  }
+}
 .header-principal .header-box-3 .header-phone,
 .header-principal .header-box-3 .header-text {
   color: var(--colorPrimary);
@@ -513,7 +526,7 @@ template {
   }
 }
 
-.menu-ul {
+.menu ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
@@ -521,7 +534,7 @@ template {
   text-align: center;
 }
 @media screen and (max-width: 1023px) {
-  .menu-ul {
+  .menu ul {
     margin: 0;
     flex-direction: column;
     background-color: var(--colorPrimary);
@@ -530,28 +543,34 @@ template {
     position: fixed;
   }
 }
-@media screen and (min-width: 1024px) {
-  .menu-ul {
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
-  }
-}
-.menu-ul .menu-link {
+.menu ul a {
   color: white;
   text-decoration: none;
   width: 100%;
   display: block;
   padding: 0.3em;
 }
-.menu-ul .menu-link:hover {
+.menu ul a:hover {
   color: var(--colorSecondary);
 }
 @media screen and (min-width: 1024px) {
-  .menu-ul .menu-link {
+  .menu ul a {
     color: var(--colorText);
   }
-  .menu-ul .menu-link:hover {
+  .menu ul a:hover {
     color: var(--colorPrimary);
   }
+}
+.menu ul li.current-menu-item {
+  background-color: var(--colorPrimary);
+  border-radius: 5px;
+}
+.menu ul li.current-menu-item:hover {
+  filter: brightness(130%);
+}
+.menu ul li.current-menu-item a {
+  color: white;
+  padding: 0.5em;
 }
 
 /* ------------------ slider ----------------- */
@@ -658,6 +677,15 @@ template {
 .slider-form .form-content input[type=number] {
   padding: 0.3em;
 }
+.slider-form .form-content input[type=submit] {
+  background-color: var(--colorPrimary);
+  color: white;
+  border: none;
+  padding: 0.5em;
+}
+.slider-form .form-content input[type=submit]:hover {
+  filter: brightness(130%);
+}
 
 @media screen and (max-width: 1023px) {
   .main {
@@ -682,11 +710,18 @@ template {
   overflow: hidden;
 }
 .habitaciones-content .habitaciones-box .capa {
-  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
-.habitaciones-content .habitaciones-box:hover .habitaciones-text,
+.habitaciones-content .habitaciones-box:hover .habitaciones-text {
+  display: none;
+}
 .habitaciones-content .habitaciones-box:hover .capa {
-  visibility: visible;
+  transition: all 0.2s ease;
+  top: 80%;
+  left: 50%;
+  right: 50%;
 }
 .habitaciones-content .habitaciones-img {
   width: 100%;
@@ -703,7 +738,6 @@ template {
   right: 0;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
 }
 
 /* ------------------ Restaurante ----------------- */
@@ -877,11 +911,88 @@ template {
   filter: brightness(130%);
 }
 
-/* ------------------ FOOTER ----------------- */
-.footer-principal {
-  background-color: var(--colorSecondary);
+/* ------------------ SECTION GALERIA----------------- */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+.galeria-box {
+  max-width: 300px;
+  margin: 0.5em;
+  height: 300px;
+  border: 5px solid var(--colorSecondary);
+  cursor: pointer;
+}
+.galeria-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-galeria {
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-galeria.active {
+  display: flex;
+}
+
+.modal-galeria__img {
+  width: 70%;
+  border: 5px solid white;
+}
+
+.modal-galeria__buttoms {
+  position: absolute;
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+.modal-galeria__buttoms .slider-prev,
+.modal-galeria__buttoms .slider-next {
+  width: 45px;
+  height: 45px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.modal-closed {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 2em;
+  background-color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.modal-closed:hover {
+  color: var(--colorPrimary);
+}
+
+/* ------------------ FOOTER ----------------- */
 .footer-content {
   display: flex;
   flex-wrap: wrap;

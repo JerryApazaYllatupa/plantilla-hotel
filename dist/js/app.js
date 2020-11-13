@@ -867,6 +867,12 @@ try {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _library_library__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./library/library */ "./src/js/library/library.js");
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
  // =============== Section menu  ==============
 
 var active = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("icon-hamburger"),
@@ -879,41 +885,102 @@ Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(active, 'click
 
 var btnNext = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sliderNext"),
     btnPrev = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sliderPrev");
-var sliderContent = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sliderContent"),
-    sliderImages = sliderContent.getElementsByClassName('slider-img');
-var numberClick = 0;
+var sliderContent = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("sliderContent");
 
-var closeImages = function closeImages() {
-  var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+if (sliderContent) {
+  var sliderImages = sliderContent.getElementsByClassName('slider-img');
+  var numberClick = 0;
 
-  if (number > sliderImages.length - 2) {
-    numberClick = 0;
-  }
+  var closeImages = function closeImages() {
+    var number = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
 
-  for (var i = 0; i < sliderImages.length; i++) {
-    if (i == number) {
-      sliderImages[i].classList.add("active");
-    } else {
-      sliderImages[i].classList.remove("active");
+    if (number > sliderImages.length - 2) {
+      numberClick = 0;
     }
-  }
-};
 
-closeImages(); // Fuction to run 
+    for (var i = 0; i < sliderImages.length; i++) {
+      if (i == number) {
+        sliderImages[i].classList.add("active");
+      } else {
+        sliderImages[i].classList.remove("active");
+      }
+    }
+  };
 
-setInterval(function () {
-  numberClick = numberClick + 1;
-  closeImages(numberClick);
-}, 3000);
-Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnNext, 'click', function () {
-  numberClick++;
-  closeImages(numberClick);
-});
-Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnPrev, 'click', function () {
-  numberClick--;
-  var newPosition = Math.abs(numberClick);
-  closeImages(newPosition);
-});
+  closeImages(); // Fuction to run 
+
+  setInterval(function () {
+    numberClick = numberClick + 1;
+    closeImages(numberClick);
+  }, 3000);
+  Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnNext, 'click', function () {
+    numberClick++;
+    closeImages(numberClick);
+  });
+  Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnPrev, 'click', function () {
+    numberClick--;
+    var newPosition = Math.abs(numberClick);
+    closeImages(newPosition);
+  });
+} // =========== SECTION SLIDER =========
+
+
+var galeriaPrincipal = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("galeriaPrincipal");
+
+if (galeriaPrincipal) {
+  (function () {
+    var imgModal = "";
+    var galeria = galeriaPrincipal.getElementsByClassName('galeria-img'),
+        modalGaleria = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])('modalGaleria');
+
+    var _iterator = _createForOfIteratorHelper(galeria),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var item = _step.value;
+        Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(item, 'click', function (e) {
+          modalGaleria.classList.add('active');
+          imgModal = e.target.src;
+          modalGaleria.getElementsByClassName("modal-galeria__img")[0].src = e.target.src;
+        });
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    var numberImg = 0;
+
+    for (var i = 0; i < galeria.length; i++) {
+      if (imgModal == galeria[i].src) {
+        numberImg = i;
+      }
+    }
+
+    Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(modalGaleria, 'click', function (e) {
+      if (e.target.classList.contains("modal-closed") || e.target.classList.contains("fa-close") || e.target.classList.contains("modal-galeria")) {
+        modalGaleria.classList.remove('active');
+      }
+    });
+    var sliderPrevGallery = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])('sliderPrevGallery'),
+        sliderNextGallery = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])('sliderNextGallery'); // listener(sliderPrevGallery, 'click', () => {
+    //   console.log('prev')
+    // })
+
+    Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(sliderNextGallery, 'click', function () {
+      for (var _i = 0; _i < galeria.length; _i++) {
+        if (numberImg == _i) {
+          modalGaleria.getElementsByClassName("modal-galeria__img")[0].src = galeria[_i].src;
+        }
+      }
+
+      numberImg++;
+      console.log(numberImg);
+    });
+  })();
+}
 
 /***/ }),
 
