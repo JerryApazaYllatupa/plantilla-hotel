@@ -3,6 +3,9 @@
     "/dist/css/app.css": "/dist/css/app.css",
     "/dist/contactanos.html": "/dist/contactanos.html",
     "/dist/galeria.html": "/dist/galeria.html",
+    "/dist/habitaciones.html": "/dist/habitaciones.html",
     "/dist/index.html": "/dist/index.html",
-    "/dist/promociones.html": "/dist/promociones.html"
+    "/dist/nosotros.html": "/dist/nosotros.html",
+    "/dist/promociones.html": "/dist/promociones.html",
+    "/dist/ubicanos.html": "/dist/ubicanos.html"
 }

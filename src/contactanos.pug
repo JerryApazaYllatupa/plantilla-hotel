@@ -40,13 +40,14 @@ append content
 
   section.contactanos-mapa
     h2.title1 Tienes alguna duda. escribenos
+    span.title-line
     .formulario-contactanos
       form.formulario-form(action="")
-        label.form_label(for="#contact_name") Nombre
+        label.form_label(for="#contact_name") Nombre *
         input(type="text" id="contact_name")
-        label.form_label(for="#contact_apellido") Apellidos
+        label.form_label(for="#contact_apellido") Apellidos 
         input(type="text" id="contact_apellido")
-        label.form_label(for="#contact_email") E-mail
+        label.form_label(for="#contact_email") E-mail * 
         input(type="email" id="contact_email")
         label.form_label(for="#contact_message") Mensaje
         textarea(name="", cols="30", rows="10" id="contact_message")

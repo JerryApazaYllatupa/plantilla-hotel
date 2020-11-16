@@ -419,7 +419,6 @@ template {
   margin-bottom: 0;
   color: var(--colorSecondary);
   font-weight: lighter;
-  margin-bottom: 0.5em;
 }
 
 .text-p {
@@ -429,9 +428,9 @@ template {
 .title-line {
   text-align: center;
   display: block;
-  width: 20%;
+  width: 10%;
   border-bottom: 2px solid var(--colorPrimary);
-  margin: auto;
+  margin: 1em auto;
 }
 
 .link-phone {
@@ -480,22 +479,6 @@ template {
   text-align: center;
 }
 
-.header-principal .header-box-3 .header-translate {
-  justify-content: center;
-  display: none;
-}
-
-.header-principal .header-box-3 .header-translate .header-lang-img {
-  width: 1.5em;
-  margin: 0 0.5em;
-}
-
-@media screen and (min-width: 1024px) {
-  .header-principal .header-box-3 .header-translate {
-    display: flex;
-  }
-}
-
 .header-principal .header-box-3 .header-phone,
 .header-principal .header-box-3 .header-text {
   color: var(--colorPrimary);
@@ -507,6 +490,38 @@ template {
   .header-principal {
     display: flex;
   }
+}
+
+.header-translate {
+  justify-content: center;
+  display: none;
+}
+
+.header-translate .header-lang-img {
+  width: 1.5em;
+  margin: 0 0.5em;
+}
+
+@media screen and (min-width: 1024px) {
+  .header-translate {
+    display: flex;
+  }
+}
+
+.header-translate #polylang-2 {
+  list-style: none;
+}
+
+.header-translate #polylang-2 ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.header-translate #polylang-2 .lang-item img {
+  width: 25px !important;
+  height: 15px !important;
+  margin: 0.5em;
 }
 
 .header-logo {
@@ -535,6 +550,23 @@ template {
 .header-language .header-lang-img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.header-language #polylang-2 {
+  list-style: none;
+}
+
+.header-language #polylang-2 ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-language #polylang-2 ul img {
+  width: 20px;
+  height: 15px;
+  margin: 0.2em;
 }
 
 @media screen and (min-width: 1024px) {
@@ -849,6 +881,70 @@ template {
   align-items: center;
 }
 
+/* ------------------ Habitaciones-page ----------------- */
+
+@media screen and (min-width: 1024px) {
+  .habitaciones-page .habitaciones-page__aside {
+    width: 28%;
+    float: right;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    border-left: 1px solid var(--colorPrimary);
+    padding-left: 1.3em;
+  }
+}
+
+.habitaciones-page .habitaciones-page__aside .aside-direction {
+  text-align: center;
+}
+
+.habitaciones-page .habitaciones-page__aside .aside-box {
+  border-bottom: 2px solid var(--colorPrimary);
+  padding: 0.5em;
+}
+
+.habitaciones-page .habitaciones-page__aside .aside-box span.fa {
+  font-size: 1.4em;
+  margin: 0 0.3em;
+  color: var(--colorPrimary);
+}
+
+.habitaciones-page .aside-form {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1em;
+}
+
+.habitaciones-page__content {
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .habitaciones-page__content .slider .slider-content,
+  .habitaciones-page__content .slider .slider-buttoms {
+    height: 350px;
+  }
+}
+
+.habitaciones-page__content .habitaciones-price__box {
+  font-size: 1.6em;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--colorPrimary);
+  color: white;
+}
+
+@media screen and (min-width: 1024px) {
+  .habitaciones-page__content {
+    width: 70%;
+    padding: 0.5em;
+  }
+}
+
 /* ------------------ Restaurante ----------------- */
 
 .restaurante {
@@ -877,12 +973,19 @@ template {
   text-align: center;
   color: var(--colorText);
   font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.restaurante-box .text-p {
+  font-size: 1.3em;
 }
 
 /* ------------------ SECTION BANNER ----------------- */
 
 .banner {
-  height: 300px;
   overflow: hidden;
   position: relative;
 }
@@ -898,18 +1001,30 @@ template {
 
 .banner-img {
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .banner .title {
   position: absolute;
   left: 0;
   right: 0;
-  top: 100px;
   bottom: 0;
   margin: auto;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ------------------ SECTION PAQUETES----------------- */
+@media screen and (min-width: 1024px) {
+  .banner {
+    height: 300px;
+  }
+}
+
+/* ------------------ SECTION PAQUETES PROMOCIONES----------------- */
 
 .package-content {
   display: flex;
@@ -949,10 +1064,6 @@ template {
      object-fit: cover;
 }
 
-.package-box__img .package-box-capa {
-  visibility: hidden;
-}
-
 .package-box__img .package-title {
   position: absolute;
   left: 0;
@@ -964,12 +1075,15 @@ template {
   align-items: center;
   z-index: 1;
   color: var(--colorTextWhite);
-  visibility: hidden;
 }
 
-.package-box__img:hover .package-title,
+.package-box__img:hover .package-title {
+  display: none;
+}
+
 .package-box__img:hover .package-box-capa {
-  visibility: visible;
+  transition: all 0.2s ease;
+  top: 100%;
 }
 
 /* ------------------ SECTION CONTACTANOS----------------- */
@@ -1016,23 +1130,33 @@ template {
 
 .formulario-form {
   padding: 1em;
-  background-color: var(--colorPrimary);
   min-width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px var(--colorSecondary);
 }
 
 .formulario-form .form_label {
   text-align: start;
-  color: white;
+  color: var(--colorText);
+  margin: 0.5em 0;
+}
+
+.formulario-form input[type=text],
+.formulario-form input[type=email],
+.formulario-form textarea {
+  border: 1px solid var(--colorPrimary);
+  padding: 0.5em;
+  border-radius: 5px;
 }
 
 .formulario-form input[type=submit] {
   background-color: var(--colorPrimary);
   color: var(--colorTextWhite);
-  margin: 0.5em 0;
-  padding: 1em;
+  margin: 0.3em 0;
+  padding: 0.8em;
   border: 1px solid white;
   border-radius: 5px;
 }
@@ -1053,8 +1177,9 @@ template {
   max-width: 300px;
   margin: 0.5em;
   height: 300px;
-  border: 5px solid var(--colorSecondary);
   cursor: pointer;
+  border: 3px solid var(--colorPrimary);
+  border-radius: 3px;
 }
 
 .galeria-box img {
@@ -1125,6 +1250,40 @@ template {
 
 .modal-closed:hover {
   color: var(--colorPrimary);
+}
+
+/* ------------------ NOSOTROS ----------------- */
+
+.nosotros-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1024px) {
+  .nosotros-content {
+    justify-content: space-between;
+  }
+
+  .nosotros-content .nosotros-text {
+    width: 45%;
+  }
+
+  .nosotros-content .nosotros-img {
+    width: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+.nosotros-img {
+  width: 100%;
+}
+
+/* ------------------ UBICANOS ----------------- */
+
+.contact-mapa {
+  width: 100%;
 }
 
 /* ------------------ FOOTER ----------------- */

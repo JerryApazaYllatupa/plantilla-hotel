@@ -82,27 +82,21 @@ if (sliderContent) {
 
 let galeriaPrincipal = getId("galeriaPrincipal")
 if (galeriaPrincipal) {
-  let imgModal = ""
+  let imgModal = "", numberImg = 0;
+
 
   let galeria = galeriaPrincipal.getElementsByClassName('galeria-img'),
     modalGaleria = getId('modalGaleria');
 
-  for (const item of galeria) {
-    listener(item, 'click', e => {
+  for (let i = 0; i < galeria.length; i++) {
+    listener(galeria[i], 'click', e => {
       modalGaleria.classList.add('active')
       imgModal = e.target.src
       modalGaleria.getElementsByClassName("modal-galeria__img")[0].src = e.target.src
+      numberImg = i
     })
   }
 
-  let numberImg = 0
-  for (let i = 0; i < galeria.length; i++) {
-
-    if (imgModal == galeria[i].src) {
-      numberImg = i
-    }
-
-  }
 
   listener(modalGaleria, 'click', e => {
     if (e.target.classList.contains("modal-closed") ||
@@ -116,25 +110,24 @@ if (galeriaPrincipal) {
   let sliderPrevGallery = getId('sliderPrevGallery'),
     sliderNextGallery = getId('sliderNextGallery');
 
-  // listener(sliderPrevGallery, 'click', () => {
-  //   console.log('prev')
 
-  // })
 
   listener(sliderNextGallery, 'click', () => {
-
-    for (let i = 0; i < galeria.length; i++) {
-
-      if (numberImg == i) {
-        modalGaleria.getElementsByClassName("modal-galeria__img")[0].src = galeria[i].src
-
-      }
+    if (numberImg > galeria.length - 2) {
+      numberImg = 0
     }
-
+    modalGaleria.getElementsByClassName("modal-galeria__img")[0].src = galeria[numberImg].src
     numberImg++
-    console.log(numberImg)
+  })
 
+  listener(sliderPrevGallery, 'click', () => {
+    if (numberImg > galeria.length - 2) {
+      numberImg = 0
+    }
+    modalGaleria.getElementsByClassName("modal-galeria__img")[0].src = galeria[numberImg].src
+    numberImg--
   })
 
 }
+
 
