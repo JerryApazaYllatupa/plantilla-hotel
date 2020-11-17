@@ -721,28 +721,36 @@ template {
 }
 
 /* ------------------ bienvenidos-hotel ----------------- */
-.bienvenidos-hotel .wp-caption {
+.bienvenidos-hotel .wp-caption,
+.restaurante .wp-caption {
   height: 100% !important;
   width: 500px !important;
 }
-.bienvenidos-hotel .image {
+.bienvenidos-hotel .image,
+.restaurante .image {
   object-fit: cover !important;
   height: 100% !important;
   width: 100% !important;
 }
-.bienvenidos-hotel .textwidget {
+.bienvenidos-hotel .textwidget,
+.restaurante .textwidget {
   padding: 1em;
   text-align: center;
 }
-.bienvenidos-hotel .textwidget ul {
+.bienvenidos-hotel .textwidget ul,
+.restaurante .textwidget ul {
   display: flex;
   justify-content: space-around;
-  margin: 2em;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 2em;
 }
-.bienvenidos-hotel .suitsuitsuit {
+.bienvenidos-hotel .suitsuitsuit,
+.restaurante .suitsuitsuit {
   list-style: none;
 }
-.bienvenidos-hotel .suitsuitsuit a {
+.bienvenidos-hotel .suitsuitsuit a,
+.restaurante .suitsuitsuit a {
   padding: 1em;
   background-color: var(--colorPrimary);
   margin: 0.5em;
@@ -750,7 +758,8 @@ template {
   text-decoration: none;
   border-radius: 5px;
 }
-.bienvenidos-hotel .wp-caption-text {
+.bienvenidos-hotel .wp-caption-text,
+.restaurante .wp-caption-text {
   display: none;
 }
 
@@ -871,6 +880,9 @@ template {
 .habitaciones-page__content .habitaciones-page__included {
   margin-bottom: 2em;
 }
+.habitaciones-page__content .habitaciones-page__included ul li {
+  list-style-image: url(/img/check.png);
+}
 .habitaciones-page__content .habitaciones-page__included .include-box img {
   margin-right: 0.5em;
 }
@@ -918,9 +930,31 @@ template {
     width: 60%;
   }
 }
+.box-content .box-content__section:nth-child(3) {
+  text-align: center;
+  margin: auto;
+}
+.box-content .iconosCategorias ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box-content .iconosCategorias ul li img {
+  margin: 5px 13px;
+}
 .box-content .box-content__link {
   text-decoration: none;
   color: var(--colorPrimary);
+}
+.box-content .box-servicios {
+  font-size: 0;
+}
+.box-content .box-servicios img {
+  margin: 5px 13px;
 }
 .box-content .box-btn {
   padding: 0.8em;
@@ -974,7 +1008,7 @@ template {
   color: var(--colorPrimary);
 }
 
-.habitaciones-page__content ul li {
+.habitaciones-page__content .habitaciones-reserva-included ul li {
   list-style-image: url(/img/check.png);
   color: var(--colorText);
   margin: 0.5em;

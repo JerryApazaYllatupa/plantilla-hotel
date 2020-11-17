@@ -457,7 +457,9 @@ $maxWith: var(--maxWith);
 }
 
 /* ------------------ bienvenidos-hotel ----------------- */
-.bienvenidos-hotel {
+.bienvenidos-hotel,
+.restaurante {
+
 
 	.wp-caption {
 		height: 100% !important;
@@ -477,8 +479,9 @@ $maxWith: var(--maxWith);
 		ul {
 			display: flex;
 			justify-content: space-around;
-			margin: 2em;
-
+			flex-wrap: wrap;
+			padding: 0;
+			margin-bottom: 2em;
 		}
 	}
 
@@ -649,11 +652,19 @@ $maxWith: var(--maxWith);
 	.habitaciones-page__included {
 		margin-bottom: 2em;
 
+		ul {
+			li {
+				list-style-image: url(/img/check.png);
+			}
+		}
+
 		.include-box {
 
 			img {
 				margin-right: .5em;
 			}
+
+
 		}
 	}
 
@@ -681,6 +692,8 @@ $maxWith: var(--maxWith);
 	box-shadow: 2px 2px 4px var(--colorPrimary);
 	border-radius: 5px;
 
+
+
 	.box-content__section:nth-child(1) {
 		width: 100%;
 
@@ -706,9 +719,41 @@ $maxWith: var(--maxWith);
 		}
 	}
 
+	.box-content__section:nth-child(3) {
+		text-align: center;
+		margin: auto;
+	}
+
+	.iconosCategorias {
+
+		ul {
+			list-style: none;
+			padding: 0;
+			font-size: 0;
+			margin: 0;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			li {
+				img {
+					margin: 5px 13px;
+				}
+			}
+		}
+	}
+
 	.box-content__link {
 		text-decoration: none;
 		color: $cPrimary;
+	}
+
+	.box-servicios {
+		font-size: 0;
+
+		img {
+			margin: 5px 13px;
+		}
 	}
 
 	.box-btn {
@@ -773,13 +818,16 @@ $maxWith: var(--maxWith);
 }
 
 .habitaciones-page__content {
-	ul {
-		li {
-			list-style-image: url(/img/check.png);
-			color: $cText;
-			margin: .5em;
+	.habitaciones-reserva-included {
+		ul {
+			li {
+				list-style-image: url(/img/check.png);
+				color: $cText;
+				margin: .5em;
+			}
 		}
 	}
+
 }
 
 /* ------------------ Restaurante ----------------- */
