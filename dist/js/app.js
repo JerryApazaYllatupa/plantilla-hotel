@@ -965,6 +965,25 @@ if (galeriaPrincipal) {
       numberImg--;
     });
   })();
+} // =========== SECTION MODAL FORM =========
+
+
+var btnActiveModal = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("btnActiveModal"),
+    modalFormReserva = Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["getId"])("modalFormReserva");
+
+if (btnActiveModal && modalFormReserva) {
+  Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(btnActiveModal, 'click', function () {
+    modalFormReserva.classList.add('active');
+  });
+  Object(_library_library__WEBPACK_IMPORTED_MODULE_0__["listener"])(modalFormReserva, 'click', function (e) {
+    if (e.target.classList.contains('modal-form-close')) {
+      modalFormReserva.classList.remove('active');
+    }
+
+    if (e.target.classList.contains('modal-form')) {
+      modalFormReserva.classList.remove('active');
+    }
+  });
 }
 
 /***/ }),

@@ -131,3 +131,27 @@ if (galeriaPrincipal) {
 }
 
 
+// =========== SECTION MODAL FORM =========
+
+let btnActiveModal = getId("btnActiveModal"),
+  modalFormReserva = getId("modalFormReserva");
+
+if (btnActiveModal && modalFormReserva) {
+
+  listener(btnActiveModal, 'click', () => {
+    modalFormReserva.classList.add('active')
+  })
+
+  listener(modalFormReserva, 'click', e => {
+
+    if (e.target.classList.contains('modal-form-close')) {
+      modalFormReserva.classList.remove('active')
+    }
+
+    if (e.target.classList.contains('modal-form')) {
+      modalFormReserva.classList.remove('active')
+    }
+
+  })
+
+}

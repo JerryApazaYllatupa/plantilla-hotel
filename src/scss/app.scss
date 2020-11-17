@@ -456,6 +456,50 @@ $maxWith: var(--maxWith);
 	}
 }
 
+/* ------------------ bienvenidos-hotel ----------------- */
+.bienvenidos-hotel {
+
+	.wp-caption {
+		height: 100% !important;
+		width: 500px !important;
+	}
+
+	.image {
+		object-fit: cover !important;
+		height: 100% !important;
+		width: 100% !important;
+	}
+
+	.textwidget {
+		padding: 1em;
+		text-align: center;
+
+		ul {
+			display: flex;
+			justify-content: space-around;
+			margin: 2em;
+
+		}
+	}
+
+	.suitsuitsuit {
+		list-style: none;
+
+		a {
+			padding: 1em;
+			background-color: var(--colorPrimary);
+			margin: .5em;
+			color: white;
+			text-decoration: none;
+			border-radius: 5px;
+		}
+	}
+
+	.wp-caption-text {
+		display: none;
+	}
+}
+
 /* ------------------ Habitaciones ----------------- */
 
 .habitaciones-content {
@@ -523,15 +567,23 @@ $maxWith: var(--maxWith);
 
 /* ------------------ Habitaciones-page ----------------- */
 .habitaciones-page {
+	@include to(l) {
+		display: flex;
+		flex-direction: column;
+	}
+
 
 	.habitaciones-page__aside {
+		order: 1;
+
 		@include from(l) {
 			width: 28%;
 			float: right;
 			position: sticky;
 			top: 50px;
 			border-left: 1px solid $cPrimary;
-			padding-left: 1.3em;
+			padding: 1.3em;
+			background-color: white;
 		}
 
 		.aside-direction {
@@ -539,7 +591,7 @@ $maxWith: var(--maxWith);
 		}
 
 		.aside-box {
-			border-bottom: 2px solid $cPrimary;
+			border-bottom: 1.3px solid $cPrimary;
 			padding: .5em;
 
 			span.fa {
@@ -547,9 +599,12 @@ $maxWith: var(--maxWith);
 				margin: 0 .3em;
 				color: $cPrimary;
 			}
+
+			a {
+				text-decoration: none;
+				color: $cPrimary;
+			}
 		}
-
-
 	}
 
 	.aside-form {
@@ -573,22 +628,157 @@ $maxWith: var(--maxWith);
 
 	}
 
-	.habitaciones-price__box {
-		font-size: 1.6em;
-		width: 100px;
-		height: 100px;
+	.habitaciones-price {
+		font-size: 1.5em;
+		width: 150px;
+		height: 150px;
 		border-radius: 50%;
 		display: flex;
 		justify-content: center;
+		flex-direction: column;
 		align-items: center;
 		background-color: var(--colorPrimary);
 		color: white;
+		margin: .3em auto;
+
+		.span-text {
+			color: lightblue;
+		}
 	}
+
+	.habitaciones-page__included {
+		margin-bottom: 2em;
+
+		.include-box {
+
+			img {
+				margin-right: .5em;
+			}
+		}
+	}
+
 
 	@include from(l) {
 		width: 70%;
 
 		padding: .5em;
+	}
+}
+
+/* ------------------ PAGE HABITACIONES Y PRECIOS ----------------- */
+.habitaciones-page__content {
+	@include from (l) {
+		width: 70%;
+	}
+
+}
+
+.box-content {
+	border: 1px solid $cPrimary;
+	padding: .5em;
+	border: 1px solid var(--colorPrimary);
+	margin-bottom: 1.3em;
+	box-shadow: 2px 2px 4px var(--colorPrimary);
+	border-radius: 5px;
+
+	.box-content__section:nth-child(1) {
+		width: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include from {
+			width: 40%;
+		}
+	}
+
+	.box-content__section:nth-child(2) {
+
+		text-align: center;
+		padding: 0 3em;
+
+		@include from {
+			width: 60%;
+
+		}
+	}
+
+	.box-content__link {
+		text-decoration: none;
+		color: $cPrimary;
+	}
+
+	.box-btn {
+		padding: .8em;
+		background-color: var(--colorPrimary);
+		width: 200px;
+		color: white;
+		border-radius: 5px;
+		margin: auto;
+		cursor: pointer;
+
+		.box-btn__link {
+			color: white;
+			text-decoration: none;
+
+		}
+
+		&:hover {
+			filter: brightness(130%);
+		}
+	}
+
+	.box-price {
+		span {
+			font-size: 1.5em;
+			color: var(--colorPrimary);
+		}
+	}
+
+	@include from {
+		display: flex;
+
+	}
+}
+
+.btn-float {
+	position: fixed;
+	background-color: var(--colorPrimary);
+	padding: .6em;
+	bottom: 0;
+	border-radius: 5px;
+	color: white;
+
+	@include from(l) {
+		display: none;
+	}
+
+	.btn-float__link {
+		color: white;
+		text-decoration: none;
+	}
+
+	&:hover {
+		filter: brightness(130%);
+	}
+}
+
+/* ------------------ RESERVAS ----------------- */
+.title2 {
+	color: $cPrimary;
+
+}
+
+.habitaciones-page__content {
+	ul {
+		li {
+			list-style-image: url(/img/check.png);
+			color: $cText;
+			margin: .5em;
+		}
 	}
 }
 
@@ -610,23 +800,27 @@ $maxWith: var(--maxWith);
 	&-img {
 		min-width: 45%;
 		object-fit: cover;
-	}
 
-	&-box {
-		min-width: 45%;
-		text-align: center;
-		color: $cText;
-		font-size: 1.2em;
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
-
-		.text-p {
-			font-size: 1.3em;
-
+		@include to() {
+			max-height: 300px;
 		}
 	}
+
+	// &-box {
+	// 	min-width: 45%;
+	// 	text-align: center;
+	// 	color: $cText;
+	// 	font-size: 1.2em;
+	// 	display: flex;
+	// 	align-items: center;
+	// 	flex-direction: column;
+	// 	justify-content: center;
+
+	// 	.text-p {
+	// 		font-size: 1.3em;
+
+	// 	}
+	// }
 
 }
 
@@ -706,7 +900,6 @@ $maxWith: var(--maxWith);
 		object-fit: cover;
 	}
 
-	.package-box-capa {}
 
 	.package-title {
 		position: absolute;
@@ -779,6 +972,7 @@ $maxWith: var(--maxWith);
 .contact-mapa {
 	min-width: 45%;
 	height: 450px;
+	margin-bottom: 2em;
 }
 
 .formulario-form {
@@ -819,6 +1013,46 @@ $maxWith: var(--maxWith);
 		}
 	}
 
+}
+
+/* ------------------ SECTION MODAL FORM----------------- */
+
+.modal-form {
+	position: fixed;
+	top: 0;
+	background-color: rgba(0, 0, 0, .8);
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	display: none;
+
+
+}
+
+.modal-form.active {
+	display: flex;
+
+	@include from(l) {
+		display: none
+	}
+}
+
+.modal-form-close {
+	color: rgb(241, 79, 4);
+	position: absolute;
+	padding: 1em;
+	top: 2px;
+	right: 2px;
+	top: 50px;
+	font-size: 1.4em;
+	cursor: pointer;
+}
+
+.form-content-box {
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 1em;
+	width: 80%;
 }
 
 /* ------------------ SECTION GALERIA----------------- */
@@ -871,7 +1105,6 @@ $maxWith: var(--maxWith);
 
 	width: 70%;
 	border: 5px solid white;
-	// padding: .5em;
 
 }
 

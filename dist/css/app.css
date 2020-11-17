@@ -826,6 +826,48 @@ template {
   }
 }
 
+/* ------------------ bienvenidos-hotel ----------------- */
+
+.bienvenidos-hotel .wp-caption {
+  height: 100% !important;
+  width: 500px !important;
+}
+
+.bienvenidos-hotel .image {
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.bienvenidos-hotel .textwidget {
+  padding: 1em;
+  text-align: center;
+}
+
+.bienvenidos-hotel .textwidget ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 2em;
+}
+
+.bienvenidos-hotel .suitsuitsuit {
+  list-style: none;
+}
+
+.bienvenidos-hotel .suitsuitsuit a {
+  padding: 1em;
+  background-color: var(--colorPrimary);
+  margin: 0.5em;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.bienvenidos-hotel .wp-caption-text {
+  display: none;
+}
+
 /* ------------------ Habitaciones ----------------- */
 
 .habitaciones-content {
@@ -883,6 +925,17 @@ template {
 
 /* ------------------ Habitaciones-page ----------------- */
 
+@media screen and (max-width: 1023px) {
+  .habitaciones-page {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.habitaciones-page .habitaciones-page__aside {
+  order: 1;
+}
+
 @media screen and (min-width: 1024px) {
   .habitaciones-page .habitaciones-page__aside {
     width: 28%;
@@ -891,7 +944,8 @@ template {
     position: sticky;
     top: 50px;
     border-left: 1px solid var(--colorPrimary);
-    padding-left: 1.3em;
+    padding: 1.3em;
+    background-color: white;
   }
 }
 
@@ -900,13 +954,18 @@ template {
 }
 
 .habitaciones-page .habitaciones-page__aside .aside-box {
-  border-bottom: 2px solid var(--colorPrimary);
+  border-bottom: 1.3px solid var(--colorPrimary);
   padding: 0.5em;
 }
 
 .habitaciones-page .habitaciones-page__aside .aside-box span.fa {
   font-size: 1.4em;
   margin: 0 0.3em;
+  color: var(--colorPrimary);
+}
+
+.habitaciones-page .habitaciones-page__aside .aside-box a {
+  text-decoration: none;
   color: var(--colorPrimary);
 }
 
@@ -926,16 +985,30 @@ template {
   }
 }
 
-.habitaciones-page__content .habitaciones-price__box {
-  font-size: 1.6em;
-  width: 100px;
-  height: 100px;
+.habitaciones-page__content .habitaciones-price {
+  font-size: 1.5em;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   background-color: var(--colorPrimary);
   color: white;
+  margin: 0.3em auto;
+}
+
+.habitaciones-page__content .habitaciones-price .span-text {
+  color: lightblue;
+}
+
+.habitaciones-page__content .habitaciones-page__included {
+  margin-bottom: 2em;
+}
+
+.habitaciones-page__content .habitaciones-page__included .include-box img {
+  margin-right: 0.5em;
 }
 
 @media screen and (min-width: 1024px) {
@@ -943,6 +1016,122 @@ template {
     width: 70%;
     padding: 0.5em;
   }
+}
+
+/* ------------------ PAGE HABITACIONES Y PRECIOS ----------------- */
+
+@media screen and (min-width: 1024px) {
+  .habitaciones-page__content {
+    width: 70%;
+  }
+}
+
+.box-content {
+  border: 1px solid var(--colorPrimary);
+  padding: 0.5em;
+  border: 1px solid var(--colorPrimary);
+  margin-bottom: 1.3em;
+  box-shadow: 2px 2px 4px var(--colorPrimary);
+  border-radius: 5px;
+}
+
+.box-content .box-content__section:nth-child(1) {
+  width: 100%;
+}
+
+.box-content .box-content__section:nth-child(1) img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 640px) {
+  .box-content .box-content__section:nth-child(1) {
+    width: 40%;
+  }
+}
+
+.box-content .box-content__section:nth-child(2) {
+  text-align: center;
+  padding: 0 3em;
+}
+
+@media screen and (min-width: 640px) {
+  .box-content .box-content__section:nth-child(2) {
+    width: 60%;
+  }
+}
+
+.box-content .box-content__link {
+  text-decoration: none;
+  color: var(--colorPrimary);
+}
+
+.box-content .box-btn {
+  padding: 0.8em;
+  background-color: var(--colorPrimary);
+  width: 200px;
+  color: white;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.box-content .box-btn .box-btn__link {
+  color: white;
+  text-decoration: none;
+}
+
+.box-content .box-btn:hover {
+  filter: brightness(130%);
+}
+
+.box-content .box-price span {
+  font-size: 1.5em;
+  color: var(--colorPrimary);
+}
+
+@media screen and (min-width: 640px) {
+  .box-content {
+    display: flex;
+  }
+}
+
+.btn-float {
+  position: fixed;
+  background-color: var(--colorPrimary);
+  padding: 0.6em;
+  bottom: 0;
+  border-radius: 5px;
+  color: white;
+}
+
+@media screen and (min-width: 1024px) {
+  .btn-float {
+    display: none;
+  }
+}
+
+.btn-float .btn-float__link {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-float:hover {
+  filter: brightness(130%);
+}
+
+/* ------------------ RESERVAS ----------------- */
+
+.title2 {
+  color: var(--colorPrimary);
+}
+
+.habitaciones-page__content ul li {
+  list-style-image: url(/img/check.png);
+  color: var(--colorText);
+  margin: 0.5em;
 }
 
 /* ------------------ Restaurante ----------------- */
@@ -968,19 +1157,10 @@ template {
      object-fit: cover;
 }
 
-.restaurante-box {
-  min-width: 45%;
-  text-align: center;
-  color: var(--colorText);
-  font-size: 1.2em;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.restaurante-box .text-p {
-  font-size: 1.3em;
+@media screen and (max-width: 639px) {
+  .restaurante-img {
+    max-height: 300px;
+  }
 }
 
 /* ------------------ SECTION BANNER ----------------- */
@@ -1126,6 +1306,7 @@ template {
 .contact-mapa {
   min-width: 45%;
   height: 450px;
+  margin-bottom: 2em;
 }
 
 .formulario-form {
@@ -1163,6 +1344,46 @@ template {
 
 .formulario-form input[type=submit]:hover {
   filter: brightness(130%);
+}
+
+/* ------------------ SECTION MODAL FORM----------------- */
+
+.modal-form {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-form.active {
+  display: flex;
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-form.active {
+    display: none;
+  }
+}
+
+.modal-form-close {
+  color: #f14f04;
+  position: absolute;
+  padding: 1em;
+  top: 2px;
+  right: 2px;
+  top: 50px;
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.form-content-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1em;
+  width: 80%;
 }
 
 /* ------------------ SECTION GALERIA----------------- */

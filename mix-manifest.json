@@ -4,8 +4,11 @@
     "/dist/contactanos.html": "/dist/contactanos.html",
     "/dist/galeria.html": "/dist/galeria.html",
     "/dist/habitaciones.html": "/dist/habitaciones.html",
+    "/dist/habitacionesyprecios.html": "/dist/habitacionesyprecios.html",
     "/dist/index.html": "/dist/index.html",
     "/dist/nosotros.html": "/dist/nosotros.html",
     "/dist/promociones.html": "/dist/promociones.html",
+    "/dist/promocioneslist.html": "/dist/promocioneslist.html",
+    "/dist/reserva.html": "/dist/reserva.html",
     "/dist/ubicanos.html": "/dist/ubicanos.html"
 }
