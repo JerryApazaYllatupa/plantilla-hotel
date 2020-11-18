@@ -31,14 +31,12 @@ let sliderContent = getId("sliderContent")
 if (sliderContent) {
 
   let sliderImages = sliderContent.getElementsByClassName('slider-img');
+  sliderImages[0].classList.add("active")
+
 
   let numberClick = 0
 
   let closeImages = (number = 0) => {
-
-    if (number > sliderImages.length - 2) {
-      numberClick = 0
-    }
 
     for (let i = 0; i < sliderImages.length; i++) {
 
@@ -55,17 +53,31 @@ if (sliderContent) {
   }
 
 
-  closeImages()
 
   // Fuction to run 
   setInterval(() => {
-    numberClick = numberClick + 1
+
     closeImages(numberClick)
-  }, 3000);
+
+    numberClick++
+
+    if (numberClick > sliderImages.length - 1) {
+      numberClick = 0
+    }
+
+
+  }, 4000);
+
 
   listener(btnNext, 'click', () => {
-    numberClick++
+
+
+
     closeImages(numberClick)
+    numberClick++
+    if (numberClick > sliderImages.length - 1) {
+      numberClick = 0
+    }
 
   })
 
@@ -78,7 +90,7 @@ if (sliderContent) {
   })
 }
 
-// =========== SECTION SLIDER =========
+// =========== SECTION SLIDER ROOMS=========
 
 let galeriaPrincipal = getId("galeriaPrincipal")
 if (galeriaPrincipal) {

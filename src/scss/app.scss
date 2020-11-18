@@ -142,7 +142,11 @@ $maxWith: var(--maxWith);
 		display: flex;
 	}
 
-	#polylang-2 {
+	#polylang-2,
+	#polylang-3,
+	#polylang-4,
+	#polylang-5,
+	.widget_polylang {
 		list-style: none;
 
 		ul {
@@ -159,6 +163,13 @@ $maxWith: var(--maxWith);
 				margin: .5em;
 			}
 		}
+	}
+
+	ul {
+		list-style: none;
+		display: flex;
+		margin: 0;
+
 	}
 }
 
@@ -187,7 +198,12 @@ $maxWith: var(--maxWith);
 		object-fit: contain;
 	}
 
-	#polylang-2 {
+
+	#polylang-2,
+	#polylang-3,
+	#polylang-4,
+	#polylang-5,
+	.widget_polylang {
 		list-style: none;
 
 		ul {
@@ -457,6 +473,13 @@ $maxWith: var(--maxWith);
 .bienvenidos-hotel,
 .restaurante {
 
+	.restaurante-content {
+		.alignnone {
+			@include to() {
+				width: 100% !important;
+			}
+		}
+	}
 
 	.wp-caption {
 		height: 100% !important;
@@ -465,8 +488,11 @@ $maxWith: var(--maxWith);
 
 	.image {
 		object-fit: cover !important;
+
 		height: 100% !important;
+
 		width: 100% !important;
+
 	}
 
 	.textwidget {
@@ -479,6 +505,10 @@ $maxWith: var(--maxWith);
 			flex-wrap: wrap;
 			padding: 0;
 			margin-bottom: 2em;
+		}
+
+		li {
+			margin: 30px;
 		}
 	}
 
@@ -794,6 +824,7 @@ $maxWith: var(--maxWith);
 	bottom: 0;
 	border-radius: 5px;
 	color: white;
+	text-decoration: none;
 
 	@include from(l) {
 		display: none;
@@ -874,6 +905,9 @@ $maxWith: var(--maxWith);
 .banner {
 	overflow: hidden;
 	position: relative;
+	min-height: 250px;
+	max-height: 300px;
+
 
 	.banner-capa {
 		background-color: rgba(255, 255, 255, 0.5);
@@ -920,9 +954,20 @@ $maxWith: var(--maxWith);
 	padding: .3em;
 	border: 1px solid $cPrimary;
 	max-width: 300px;
-	height: 400px;
+	height: 450px;
 	margin: .5em;
 	position: relative;
+
+	.description {
+		overflow: hidden;
+
+		p {
+			text-align: center;
+			max-height: 140px;
+		}
+	}
+
+
 }
 
 .package-bnt {
