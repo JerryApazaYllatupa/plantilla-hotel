@@ -30,11 +30,8 @@ $font: var(--fontFamily);
 $cPrimary: var(--colorPrimary);
 $cPrimaryLight: var(--colorPrimaryLigth);
 $cSecondary: var(--colorSecondary);
-$cBg: var(--colorBg);
 $cText: var(--colorText);
-$cHover: var(--colorHover);
 $cTextWhite: var(--colorTextWhite);
-$whitAside: var(--widthaside);
 $fontText: var(--fontText);
 $maxWith: var(--maxWith);
 
@@ -632,6 +629,7 @@ $maxWith: var(--maxWith);
 	}
 
 	.habitaciones-price {
+
 		font-size: 1.5em;
 		width: 150px;
 		height: 150px;
